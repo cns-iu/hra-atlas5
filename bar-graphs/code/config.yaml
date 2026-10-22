@@ -1,0 +1,52 @@
+# =============================================================================
+# A5 (Scoops) — Configuration
+# =============================================================================
+
+organ:
+  name: liver
+  sex: female
+  side: 
+  glb_filename:
+
+apis:
+  reference_organs: https://apps.humanatlas.io/api--staging/v1/reference-organs
+  hra_pop: https://apps.humanatlas.io/api/grlc/hra-pop/cell_types_in_anatomical_structurescts_per_as
+  hra_pop_sparql: https://lod.humanatlas.io/sparql
+  cell_generation: https://apps.humanatlas.io/api/v1/mesh-3d-cell-population
+  cell_hierarchy: https://docs.google.com/spreadsheets/d/10kV3beiTLrMFoDHN0pGYyJ2GounIF1Du7LaaP3PHqdo/export?format=csv&gid=1351060716
+
+filters:
+  tool: celltypist
+  modality: ""
+
+markers:
+  num_nodes: 20000
+  shape: sphere
+  sphere_radius: 0.001
+  sphere_subdivisions: 2
+  size: null
+  top_cell_type_count: 11
+
+visualization:
+  organ_alpha: 25
+
+# Paths below are relative to CWD, not this file — setup_and_run.py
+# chdirs into A5/ first, so run scripts from inside A5/ if invoking by hand.
+output:
+  organs_folder: outputs/downloaded organs
+  amended_folder: outputs/annotated organs
+  save_hra_pop_csv: false
+  save_cell_api_csv: false
+  # Set true and rerun to refresh outputs/AS_dataset_counts_A5.csv (stage
+  # 70). Only needs refreshing after a new HRApop data release, not on
+  # every pipeline run - leave false the rest of the time.
+  build_as_dataset_table: false
+
+bar_graph:
+  output_suffix: "-custom"
+  font_px: 16
+  as_colors:
+    capsule of the liver: "#8dd3c7"
+    diaphragmatic surface of liver: "#ffffb3"
+    gastric impression of liver: "#bebada"
+    round ligament of liver: "#fb8072"
